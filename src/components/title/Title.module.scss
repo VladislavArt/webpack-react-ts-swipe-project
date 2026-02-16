@@ -1,0 +1,19 @@
+.title {
+	position: relative;
+	padding-left: 80px;
+	width: 350px;
+	padding-top: 170px;
+	font-size: 56px;
+	color: #42567A;
+}
+
+.title::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 180px;
+	bottom: 0;
+	width: 5px;
+	height: 120px;
+	background: linear-gradient(to right, #3877EE, #EF5DA8);
+}

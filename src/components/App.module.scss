@@ -1,0 +1,11 @@
+.wrapperTop {
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapperDown {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 80px;
+	gap: 80px;
+}
