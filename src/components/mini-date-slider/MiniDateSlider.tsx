@@ -1,16 +1,15 @@
-import * as style from './MiniDateSlider.module.scss'
-import Right from '@/assets/right.svg'
 import Left from '@/assets/left.svg'
+import Right from '@/assets/right.svg'
+import * as style from './MiniDateSlider.module.scss'
 
-interface Props  {
+interface Props {
 	date: number
 	setDate: React.Dispatch<React.SetStateAction<number>>
 }
 
 function MiniDateSlider({ date, setDate }: Props) {
-
-	function handleLeftSlideClick () {
-		setDate((prev) => {
+	function handleLeftSlideClick() {
+		setDate(prev => {
 			if (prev == 2) {
 				return prev
 			} else {
@@ -19,8 +18,8 @@ function MiniDateSlider({ date, setDate }: Props) {
 		})
 	}
 
-	function handleRightSlideClick () {
-		setDate((prev) => {
+	function handleRightSlideClick() {
+		setDate(prev => {
 			if (prev == 6) {
 				return prev
 			} else {
@@ -33,18 +32,22 @@ function MiniDateSlider({ date, setDate }: Props) {
 		<>
 			<span className={style.date}>0{date}/06</span>
 			<div className={style.slider}>
-
-				<button onClick={handleLeftSlideClick} className={style.sliderLeft}>
+				<button
+					onClick={handleLeftSlideClick}
+					className={style.sliderLeft}
+				>
 					<Left color={'#42567A'} />
 				</button>
 
-				<button onClick={handleRightSlideClick} className={style.sliderRight}>
+				<button
+					onClick={handleRightSlideClick}
+					className={style.sliderRight}
+				>
 					<Right color={'#42567A'} />
 				</button>
-
 			</div>
 		</>
 	)
 }
 
-export default MiniDateSlider;
+export default MiniDateSlider
