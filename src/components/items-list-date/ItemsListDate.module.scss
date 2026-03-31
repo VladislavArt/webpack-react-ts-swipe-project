@@ -1,19 +1,26 @@
-.slider {
-	display: flex;
-	gap: 15px;
+.sliderWrapper {
+	width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
 .sliderItem {
-	max-width: 800px;
+	display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  user-select: none;
 }
 
 .date {
 	font-size: 25px;
 	color: #3877EE;
+	text-transform: uppercase;
 }
 
 .desc {
-	width: 300px;
-	color: #42567A;
-	font-size: 20px;
+	max-width: 100%;
+  color: #42567A;
+  font-size: 20px;
+  line-height: 1.5;
 }

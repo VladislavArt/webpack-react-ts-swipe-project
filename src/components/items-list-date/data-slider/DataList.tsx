@@ -118,6 +118,16 @@ const Building: TData[] = [
 	}
 ]
 
+export type TDateKey = 2 | 3 | 4 | 5 | 6
+
+export const dataMap: Record<TDateKey, TData[]> = {
+		2: Sport,
+		3: Literature,
+		4: Movie,
+		5: Science,
+		6: Building
+	}
+
 export default {
 	Sport,
 	Literature,

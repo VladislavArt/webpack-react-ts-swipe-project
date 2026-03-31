@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { Swiper as SwiperType } from 'swiper'
 import * as style from './App.module.scss'
 import BigDate from './big-date/BigDate'
@@ -8,11 +9,16 @@ import MiniDateSlider from './mini-date-slider/MiniDateSlider'
 import SliderFooterBtnLeft from './slider-footer-btn/slider-left/SliderFooterBtnLeft'
 import SliderFooterBtnRight from './slider-footer-btn/slider-right/SliderFooterBtnRight'
 import Title from './title/Title'
-import { useRef, useState } from 'react'
 
 function App() {
 	const [date, setDate] = useState<number>(2)
-	const swiperRef = useRef<SwiperType>(null)
+	const swiperRef = useRef<SwiperType | null>(null)
+
+	useEffect(() => {
+		if (swiperRef.current) {
+			swiperRef.current.slideTo(0, 500)
+		}
+	}, [date])
 
 	return (
 		<div className="container">
@@ -21,11 +27,17 @@ function App() {
 				<Title />
 				<BigDate date={date} />
 				<Circle />
-				<MiniDateSlider date={date} setDate={setDate} />
+				<MiniDateSlider
+					date={date}
+					setDate={setDate}
+				/>
 			</div>
 			<div className={style.wrapperDown}>
 				<SliderFooterBtnLeft swiperRef={swiperRef} />
-				<ItemsListDate swiperRef={swiperRef} date={date} />
+				<ItemsListDate
+					swiperRef={swiperRef}
+					date={date}
+				/>
 				<SliderFooterBtnRight swiperRef={swiperRef} />
 			</div>
 		</div>
