@@ -3,7 +3,7 @@ import { Swiper as SwiperType } from 'swiper'
 import * as style from './SliderFooterBtnLeft.module.scss'
 
 interface Props {
-	swiperRef: React.RefObject<SwiperType>
+	swiperRef: React.RefObject<SwiperType | null>
 }
 
 function SliderFooterBtnLeft({ swiperRef }: Props) {

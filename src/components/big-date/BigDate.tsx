@@ -2,19 +2,19 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef, useState } from 'react'
 import * as style from './BigDate.module.scss'
-import { dataLeftDate, dataRightDate, TDateKey } from './dates/Dates'
+import { dataLeftDate, dataRightDate, TDateKey, titleDate } from './dates/Dates'
 
 interface Props {
 	date: number
 }
 
 function BigDate({ date }: Props) {
-	const [leftDate, setLeftDate] = useState<number>(
-		dataLeftDate[date as TDateKey]
-	)
-	const [rightDate, setRightDate] = useState<number>(
-		dataRightDate[date as TDateKey]
-	)
+	const key = date as TDateKey
+
+	const [currentDates, setCurrentDates] = useState({
+		left: dataLeftDate[key],
+		right: dataRightDate[key]
+	})
 
 	const dateRefContainer = useRef<HTMLDivElement>(null)
 
@@ -28,8 +28,10 @@ function BigDate({ date }: Props) {
 				opacity: 0,
 				duration: 0.4,
 				onComplete: () => {
-					setLeftDate(dataLeftDate[date as TDateKey])
-					setRightDate(dataRightDate[date as TDateKey])
+					setCurrentDates({
+						left: dataLeftDate[key],
+						right: dataRightDate[key]
+					})
 				}
 			})
 			tl.to(elements, { rotationX: 0, opacity: 1, duration: 0.4 })
@@ -38,12 +40,15 @@ function BigDate({ date }: Props) {
 	)
 
 	return (
-		<div
-			ref={dateRefContainer}
-			className={style.date}
-		>
-			<span className={style.leftDate}>{leftDate}</span>
-			<span className={style.rightDate}>{rightDate}</span>
+		<div className={style.wrapper}>
+			<span className={style.title}>{titleDate[key]}</span>
+			<div
+				ref={dateRefContainer}
+				className={style.date}
+			>
+				<span className={style.leftDate}>{currentDates.left}</span>
+				<span className={style.rightDate}>{currentDates.right}</span>
+			</div>
 		</div>
 	)
 }

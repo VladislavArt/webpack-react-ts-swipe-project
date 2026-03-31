@@ -9,7 +9,7 @@ import * as style from './ItemsListDate.module.scss'
 
 interface Props {
 	date: number
-	swiperRef: React.RefObject<SwiperType>
+	swiperRef: React.RefObject<SwiperType | null>
 }
 
 function ItemsListDate({ swiperRef, date }: Props) {
