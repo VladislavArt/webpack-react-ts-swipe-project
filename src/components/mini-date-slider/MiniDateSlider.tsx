@@ -8,42 +8,30 @@ interface Props {
 }
 
 function MiniDateSlider({ date, setDate }: Props) {
-	function handleLeftSlideClick() {
-		setDate(prev => {
-			if (prev == 2) {
-				return prev
-			} else {
-				return prev - 1
-			}
-		})
-	}
+	const MIN_DATE = 2
+	const MAX_DATE = 6
 
-	function handleRightSlideClick() {
-		setDate(prev => {
-			if (prev == 6) {
-				return prev
-			} else {
-				return prev + 1
-			}
-		})
-	}
+	const handleRightClick = () => setDate(prev => prev + 1)
+	const handleLeftClick = () => setDate(prev => prev - 1)
 
 	return (
 		<>
-			<span className={style.date}>0{date}/06</span>
+			<span className={style.date}>{date.toString().padStart(2, '0')}/06</span>
 			<div className={style.slider}>
 				<button
-					onClick={handleLeftSlideClick}
+					onClick={handleLeftClick}
 					className={style.sliderLeft}
+					disabled={date === MIN_DATE}
 				>
-					<Left color={'#42567A'} />
+					<Left color={MIN_DATE === 2 ? '#ccc' : '#42567A'} />
 				</button>
 
 				<button
-					onClick={handleRightSlideClick}
+					onClick={handleRightClick}
 					className={style.sliderRight}
+					disabled={date === MAX_DATE}
 				>
-					<Right color={'#42567A'} />
+					<Right color={date === MAX_DATE ? '#ccc' : '#42567A'} />
 				</button>
 			</div>
 		</>
