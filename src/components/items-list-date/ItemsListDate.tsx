@@ -4,16 +4,15 @@ import { useRef } from 'react'
 import { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { dataMap, TDateKey } from './data-slider/DataList'
 import * as style from './ItemsListDate.module.scss'
+import { ISlideItem } from './data-slider/DataList'
 
 interface Props {
-	date: number
+	items: ISlideItem[]
 	swiperRef: React.RefObject<SwiperType | null>
 }
 
-function ItemsListDate({ swiperRef, date }: Props) {
-	const slides = dataMap[date as TDateKey]
+function ItemsListDate({ swiperRef, items }: Props) {
 	const sliderRefContainer = useRef<HTMLDivElement>(null)
 
 	useGSAP(
@@ -24,7 +23,7 @@ function ItemsListDate({ swiperRef, date }: Props) {
 				{ opacity: 1, y: 0, duration: 0.6, stagger: 0.1 }
 			)
 		},
-		{ dependencies: [date], scope: sliderRefContainer }
+		{ dependencies: [items], scope: sliderRefContainer }
 	)
 
 	return (
@@ -41,7 +40,7 @@ function ItemsListDate({ swiperRef, date }: Props) {
 					swiperRef.current = swiper
 				}}
 			>
-				{slides.map((item, index) => (
+				{items.map((item, index) => (
 					<SwiperSlide key={index}>
 						<div className={style.sliderItem}>
 							<span className={style.date}>{item.date}</span>

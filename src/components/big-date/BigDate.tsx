@@ -2,7 +2,8 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef, useState } from 'react'
 import * as style from './BigDate.module.scss'
-import { dataLeftDate, dataRightDate, TDateKey, titleDate } from './dates/Dates'
+import { dataLeftDate, dataRightDate, titleDate } from './dates/Dates'
+import { TDateKey } from '../items-list-date/data-slider/DataList'
 
 interface Props {
 	date: number

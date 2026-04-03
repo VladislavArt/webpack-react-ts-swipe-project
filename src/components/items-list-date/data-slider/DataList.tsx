@@ -1,9 +1,9 @@
-export interface TData {
+export interface ISlideItem {
 	date: number
 	desc: string
 }
 
-const Sport: TData[] = [
+const Sport: ISlideItem[] = [
 	{
 		date: 1987,
 		desc: 'Чемпионат мира по регби: В Новой Зеландии прошел первый чемпионат мира по регби.'
@@ -26,7 +26,7 @@ const Sport: TData[] = [
 	},
 ]
 
-const Literature: TData[] = [
+const Literature: ISlideItem[] = [
 	{
 		date: 1992,
 		desc: 'Нобелевская премия по литературе была вручена американскому писателю Тони Моррисон.'
@@ -49,7 +49,7 @@ const Literature: TData[] = [
 	}
 ]
 
-const Movie: TData[] = [
+const Movie: ISlideItem[] = [
 	{
 		date: 1999,
 		desc: 'Матрица — фильм, вышедший в марте, стал культовым благодаря своим инновационным спецэффектам.'
@@ -72,7 +72,7 @@ const Movie: TData[] = [
 	}
 ]
 
-const Science: TData[] = [
+const Science: ISlideItem[] = [
 	{
 		date: 2005,
 		desc: ' Открытие экзопланет: Астрономы начали открывать множество экзопланет.'
@@ -95,7 +95,7 @@ const Science: TData[] = [
 	}
 ]
 
-const Building: TData[] = [
+const Building: ISlideItem[] = [
 	{
 		date: 2015,
 		desc: ' Строительство "умных" зданий: В 2015 году началось активное внедрение технологий Интернета вещей (IoT) в строительство.'
@@ -120,7 +120,7 @@ const Building: TData[] = [
 
 export type TDateKey = 2 | 3 | 4 | 5 | 6
 
-export const dataMap: Record<TDateKey, TData[]> = {
+export const dataMap: Record<TDateKey, ISlideItem[]> = {
 		2: Sport,
 		3: Literature,
 		4: Movie,
