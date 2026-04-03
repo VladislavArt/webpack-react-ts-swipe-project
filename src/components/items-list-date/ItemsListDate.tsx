@@ -5,7 +5,7 @@ import { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import * as style from './ItemsListDate.module.scss'
-import { ISlideItem } from './data-slider/DataList'
+import { ISlideItem } from '@/types/types'
 
 interface Props {
 	items: ISlideItem[]

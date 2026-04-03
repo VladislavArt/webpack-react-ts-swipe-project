@@ -1,3 +1,5 @@
+import { dataMap } from '@/sliderInfo/sliderInfo'
+import { TDateKey } from '@/types/types'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper as SwiperType } from 'swiper'
 import * as style from './App.module.scss'
@@ -9,7 +11,6 @@ import MiniDateSlider from './mini-date-slider/MiniDateSlider'
 import SliderFooterBtnLeft from './slider-footer-btn/slider-left/SliderFooterBtnLeft'
 import SliderFooterBtnRight from './slider-footer-btn/slider-right/SliderFooterBtnRight'
 import Title from './title/Title'
-import { dataMap, TDateKey } from './items-list-date/data-slider/DataList'
 
 function App() {
 	const [date, setDate] = useState<number>(2)

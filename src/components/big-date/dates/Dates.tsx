@@ -1,4 +1,4 @@
-import { TDateKey } from '@/components/items-list-date/data-slider/DataList'
+import { TDateKey } from '@/types/types'
 
 export const dataLeftDate: Record<TDateKey, number> = {
 	2: 1987,

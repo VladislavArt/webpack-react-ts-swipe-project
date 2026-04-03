@@ -1,7 +1,4 @@
-export interface ISlideItem {
-	date: number
-	desc: string
-}
+import { ISlideItem, TDateKey } from '@/types/types'
 
 const Sport: ISlideItem[] = [
 	{
@@ -117,8 +114,6 @@ const Building: ISlideItem[] = [
 		desc: 'Строительство с использованием ИИ: Искусственный интеллект начал активно применяться в проектировании и управлении строительными проектами.'
 	}
 ]
-
-export type TDateKey = 2 | 3 | 4 | 5 | 6
 
 export const dataMap: Record<TDateKey, ISlideItem[]> = {
 		2: Sport,
