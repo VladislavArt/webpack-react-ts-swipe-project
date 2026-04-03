@@ -14,8 +14,8 @@ import Title from './title/Title'
 
 function App() {
 	const [date, setDate] = useState<number>(2)
-	const swiperRef = useRef<SwiperType | null>(null)
 
+	const swiperRef = useRef<SwiperType | null>(null)
 	const currentSlides = dataMap[date as TDateKey]
 
 	useEffect(() => {

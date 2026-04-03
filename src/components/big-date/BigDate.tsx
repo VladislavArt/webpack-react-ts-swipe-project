@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef, useState } from 'react'
 import * as style from './BigDate.module.scss'
-import { dataLeftDate, dataRightDate, titleDate } from './dates/Dates'
+import { leftDate, rightDate, titleDate } from './dates/Dates'
 import { TDateKey } from '@/types/types'
 
 interface Props {
@@ -12,32 +12,31 @@ interface Props {
 function BigDate({ date }: Props) {
 	const key = date as TDateKey
 
-	const [currentDates, setCurrentDates] = useState({
-		left: dataLeftDate[key],
-		right: dataRightDate[key]
+	const [currentDate, setCurrentDate] = useState({
+		left: leftDate[key],
+		right:rightDate[key]
 	})
 
 	const dateRefContainer = useRef<HTMLDivElement>(null)
 
 	useGSAP(
 		() => {
-			const tl = gsap.timeline()
 			const elements = [`.${style.leftDate}`, `.${style.rightDate}`]
-
-			tl.to(elements, {
-				rotationX: 90,
-				opacity: 0,
-				duration: 0.4,
-				onComplete: () => {
-					setCurrentDates({
-						left: dataLeftDate[key],
-						right: dataRightDate[key]
-					})
-				}
-			})
-			tl.to(elements, { rotationX: 0, opacity: 1, duration: 0.4 })
+			gsap.timeline()
+				.to(elements, {
+					rotationX: 90,
+					opacity: 0,
+					duration: 0.4,
+					onComplete: () => {
+						setCurrentDate({
+							left: leftDate[key],
+							right: rightDate[key]
+						})
+					}
+				})
+				.to(elements, { rotationX: 0, opacity: 1, duration: 0.4 })
 		},
-		{ dependencies: [date], scope: dateRefContainer }
+		{ dependencies: [key], scope: dateRefContainer }
 	)
 
 	return (
@@ -47,8 +46,8 @@ function BigDate({ date }: Props) {
 				ref={dateRefContainer}
 				className={style.date}
 			>
-				<span className={style.leftDate}>{currentDates.left}</span>
-				<span className={style.rightDate}>{currentDates.right}</span>
+				<span className={style.leftDate}>{currentDate.left}</span>
+				<span className={style.rightDate}>{currentDate.right}</span>
 			</div>
 		</div>
 	)

@@ -1,6 +1,6 @@
 import { TDateKey } from '@/types/types'
 
-export const dataLeftDate: Record<TDateKey, number> = {
+export const leftDate: Record<TDateKey, number> = {
 	2: 1987,
 	3: 1992,
 	4: 1999,
@@ -8,7 +8,7 @@ export const dataLeftDate: Record<TDateKey, number> = {
 	6: 2015
 }
 
-export const dataRightDate: Record<TDateKey, number> = {
+export const rightDate: Record<TDateKey, number> = {
 	2: 1991,
 	3: 1996,
 	4: 2003,
