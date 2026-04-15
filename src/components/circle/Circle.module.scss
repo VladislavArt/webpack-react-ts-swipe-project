@@ -1,13 +1,70 @@
-.circle {
+.wrapper {
 	position: absolute;
-	width: 500px;
-	height: 500px;
-	background-color: transparent;
-	border: 1px solid #42567A;
+	top: 42%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+.circle {
+	position: relative;
+	width: 530px;
+	height: 530px;
+	border: 1px solid rgba(66, 86, 122, 0.2);
 	border-radius: 50%;
-	top: 41%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-	opacity: 0.2;
-	z-index: -1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.point {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	background-color: #42567a;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+
+	// Заголовок рядом с точкой
+	.pointTitle {
+		position: absolute;
+		left: 70px;
+		opacity: 0;
+		visibility: hidden;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 30px;
+		color: #42567a;
+		white-space: nowrap;
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
+	}
+
+	.pointNumber {
+		opacity: 0;
+		font-size: 20px;
+	}
+
+	&:hover,
+	&.active {
+		width: 56px;
+		height: 56px;
+		background-color: #f4f5f9;
+		border: 1px solid rgba(66, 86, 122, 0.5);
+
+		.pointNumber {
+			opacity: 1;
+		}
+
+		.pointTitle {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 }

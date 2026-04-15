@@ -13,10 +13,10 @@ import SliderFooterBtnRight from './slider-footer-btn/slider-right/SliderFooterB
 import Title from './title/Title'
 
 function App() {
-	const [date, setDate] = useState<number>(2)
+	const [date, setDate] = useState<TDateKey>(2)
 
 	const swiperRef = useRef<SwiperType | null>(null)
-	const currentSlides = dataMap[date as TDateKey]
+	const currentSlides = dataMap[date]
 
 	useEffect(() => {
 		if (swiperRef.current) {
@@ -30,7 +30,10 @@ function App() {
 			<div className={style.wrapperTop}>
 				<Title />
 				<BigDate date={date} />
-				<Circle />
+				<Circle
+					date={date}
+					setDate={setDate}
+				/>
 				<MiniDateSlider
 					date={date}
 					setDate={setDate}

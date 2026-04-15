@@ -1,4 +1,11 @@
+.container {
+	position: relative;
+	margin-top: 450px;
+	z-index: 20;
+}
+
 .date {
+	display: block;
 	color: #42567A;
 	font-size: 14px;
 	padding-left: 80px;
@@ -8,7 +15,7 @@
 	display: flex;
 	padding-left: 80px;
 	padding-top: 20px;
-	gap: 25px;
+	gap: 20px;
 }
 
 .sliderLeft {

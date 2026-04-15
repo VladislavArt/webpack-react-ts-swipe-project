@@ -7,6 +7,7 @@ declare module '*.module.scss' {
 }
 
 declare module 'swiper/css'
+declare module "*.scss"; 
 
 declare module '*.png'
 declare module '*.jpg'

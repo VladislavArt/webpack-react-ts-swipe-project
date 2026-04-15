@@ -40,8 +40,8 @@ function ItemsListDate({ swiperRef, items }: Props) {
 					swiperRef.current = swiper
 				}}
 			>
-				{items.map((item, index) => (
-					<SwiperSlide key={index}>
+				{items.map(item => (
+					<SwiperSlide key={item.date}>
 						<div className={style.sliderItem}>
 							<span className={style.date}>{item.date}</span>
 							<p className={style.desc}>{item.desc}</p>
